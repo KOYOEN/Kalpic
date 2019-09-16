@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title> new document </title>
+<meta name="generator" content="editplus" />
+<meta name="author" content="" />
+<meta name="keyword" content="" />
+<meta name="description" content="" />
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var reg_id = /^[A-Za-z0-9_-]\w{5,20}$/;
+var reg_pw = /^\d{4,20}$/;
+var reg_name = /^[A-Z]{2,5}$/;
+var reg_nick = /^[A-Za-z0-9_-]\w{3,20}$/;
+var reg_year = /^\d{1,3}$/;
+var reg_phone = /^(010|016|011|018)\d{3,4}\d{4}$/;
+var reg_job = /^[A-Za-z-]\w{1,20}$/;
+$(function(){
+	$("form").submit(function(e){
+		$.each($(".chk_val"),function(i,o){
+			switch(i){
+				case 0:
+					if(!reg_id.test($(o).val())){
+						$("#chk_id").css("visibility","visible");
+					}else{
+						$("#chk_id").css("visibility","hidden");
+					}
+					break;
+				case 1:
+					if(!reg_pw.test($(o).val())){
+						$("#chk_pw").css("visibility","visible");
+					}else{
+						$("#chk_pw").css("visibility","hidden");
+					}
+					break;
+				case 2:
+					if(!reg_name.test($(o).val())){
+						$("#chk_name").css("visibility","visible");
+					}else{
+						$("#chk_name").css("visibility","hidden");
+					}
+					break;
+				case 3:
+					if(!reg_nick.test($(o).val())){
+						$("#chk_nick").css("visibility","visible");
+					}else{
+						$("#chk_nick").css("visibility","hidden");
+					}
+					break;
+				case 4:
+					if(!reg_year.test($(o).val())){
+						$("#chk_year").css("visibility","visible");
+					}else{
+						$("#chk_year").css("visibility","hidden");
+					}
+					break;
+				case 5:
+					if(!reg_phone.test($(o).val())){
+						$("#chk_phone").css("visibility","visible");
+					}else{
+						$("#chk_phone").css("visibility","hidden");
+					}
+					break;
+				case 6:
+					if(!reg_job.test($(o).val())){
+						$("#chk_job").css("visibility","visible");
+					}else{
+						$("#chk_job").css("visibility","hidden");
+					}
+					break;
+			}
+			if($("#chk_id").css("visibility")=="visible")
+				e.preventDefault();
+			else if($("#chk_pw").css("visibility")=="visible")
+				e.preventDefault();
+			else if($("#chk_name").css("visibility")=="visible")
+				e.preventDefault();
+			else if($("#chk_nick").css("visibility")=="visible")
+				e.preventDefault();
+			else if($("#chk_year").css("visibility")=="visible")
+				e.preventDefault();
+			else if($("#chk_phone").css("visibility")=="visible")
+				e.preventDefault();
+			else if($("#chk_job").css("visibility")=="visible")
+				e.preventDefault();
+			else
+				return true;
+		});	
+		
+	});
+});
+//]]>
+</script>
+</head>
+<body style="font-family: 'Do Hyeon', sans-serif;">
+<form method = "post" action = "member.jsp">
+아이디  : <input class="chk_val" type ="text" name="id" size="20"><span id="chk_id" style="color:red;visibility:hidden">✔</span><p>
+비밀번호 : <input class="chk_val" type = "password" name="pw" size="20"><span id="chk_pw" style="color:red;visibility:hidden">✔</span><p>
+이   름 : <input class="chk_val" type="text" name="name" size="20"><span id="chk_name"style="color:red;visibility:hidden">✔</span><p>
+별   명 : <input class="chk_val" type="text" name="nick" size="20"><span id="chk_nick" style="color:red;visibility:hidden">✔</span><p>
+나   이 : <input class="chk_val" type="text" name="age"><span id="chk_year"style="color:red;visibility:hidden">✔</span><p>
+휴대전화 : <input class="chk_val" type="text" name="phone" size="20"><span id="chk_phone"style="color:red;visibility:hidden">✔</span><p>
+직   업 : <input class="chk_val" type="text" name="job" size="20"><span id="chk_job"style="color:red;visibility:hidden">✔</span><p>
+&nbsp;&nbsp;<button id="sub">가입하기</button>
+&nbsp;&nbsp;<input type="reset" value="다시하기">
+</form>
+</body>
+</html>
